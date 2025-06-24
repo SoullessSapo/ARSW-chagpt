@@ -1,10 +1,10 @@
-package org.example.chat;
+package org.example.service;
 
 public class ChatService {
     private final ChatStrategy strategy;
 
-    public ChatService(ChatStrategy strategy) {
-        this.strategy = strategy;
+    public ChatService() {
+        this.strategy = new ChatGPTStrategy();
     }
 
     public String chat(String prompt) throws Exception {
