@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.config.Env;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -11,9 +12,9 @@ import java.net.URL;
 public class ChatClientFacade {
 
     public String sendPrompt(String prompt) throws IOException {
-        String apiKey = System.getenv("OPENAI_API_KEY");
+        String apiKey = Env.get("OPENAI_API_KEY");
         if (apiKey == null || apiKey.isEmpty()) {
-            throw new RuntimeException("Falta la variable de entorno OPENAI_API_KEY");
+            throw new RuntimeException("Falta OPENAI_API_KEY en el archivo .env");
         }
 
         JSONObject body = new JSONObject();
